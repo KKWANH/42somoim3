@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string		str;
+	stack<char>	st;
+	int			res = 0;
+
+	cin >> str;
+	for (int i = 0; i < (int)str.length(); i++)
+	{
+		if (str[i] == '(')
+			st.push(str[i]);
+		else
+		{
+			st.pop();
+			if (str[i - 1] == '(')
+				res += st.size();
+			else
+				res++;
+		}
+	}
+	printf("%d\n", res);
+}d
